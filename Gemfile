@@ -45,6 +45,10 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
+  gem 'guard-rspec', '2.5.0'
+  gem 'guard-spork', :github => 'guard/guard-spork'
+  gem 'childprocess', '0.3.6'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
 end
 
 gem 'faker', '1.1.2'
