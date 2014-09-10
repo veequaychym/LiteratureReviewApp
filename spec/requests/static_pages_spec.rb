@@ -1,40 +1,25 @@
 require 'spec_helper'
 
 describe "Static pages" do
-  let(:base_title) { "Literature Review App" }
+  
+  subject { page }
+  
   describe "Home page" do
-    it "should have the content 'Literature Review App'" do
-      visit '/static_pages/home'
-      expect(page).to have_content(base_title)
-    end
-    
-    it "should have the title 'Literature Review App'" do
-      visit '/static_pages/home'
-      expect(page).to have_title(base_title)
-    end
+    before { visit root_path }
+    it { should have_content('Literature Review App') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
   end
   
   describe "Help page" do
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Help')
-    end
-    
-    it "should have the title 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_title("#{base_title} | Help")
-    end
+    before { visit help_path }
+    it { should have_content('Help') }
+    it { should have_title(full_title('Help')) }
   end
   
   describe "About app page" do
-    it "should have the content 'About App'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About App')
-    end
-    
-    it "should have the title 'About App'" do
-      visit '/static_pages/about'
-      expect(page).to have_title("#{base_title} | About App")
-    end
+    before { visit about_path }
+    it { should have_content('About App') }
+    it { should have_title(full_title('About App')) }
   end
 end
